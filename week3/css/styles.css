@@ -55,5 +55,9 @@ header a :last-child {
     font-style: italic;
   }
 
+  .skills li {
+    list-style-type: none;
+  }
+
 
 
