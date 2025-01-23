@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap');
+
+header {
+    text-align: center;
+    border-bottom: 2px dotted darkslateblue;
+    padding-bottom: 5px;
+    
+}
+
+#role {
+    font-weight: bold;
+  }
+
+
+
+header h1 {
+    color: #1050aa;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 2.2em;
+}
+
+body {
+    background-color: rgb(231, 225, 214);
+    font-family: 'Roboto', sans-serif;
+}
+
+
