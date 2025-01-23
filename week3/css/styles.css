@@ -51,5 +51,9 @@ header a :last-child {
     margin-left: 20px;
 }
 
+.education .education-list > li:first-child {
+    font-style: italic;
+  }
+
 
 
