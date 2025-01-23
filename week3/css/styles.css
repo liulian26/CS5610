@@ -11,7 +11,7 @@ header {
     font-weight: bold;
 }
 
-header h1 {
+h1 {
     color: #1050aa;
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: 2.2em;
@@ -38,7 +38,7 @@ a[href*="github"]:hover {
 }
 
 a[href*="github"]::after {
-    content: url(./images/GitHub-Mark-32px.png);
+    content: url(../images/GitHub-Mark-32px.png);
     margin-left: 5px;
     vertical-align: middle;
 }
