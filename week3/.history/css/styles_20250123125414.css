@@ -47,10 +47,9 @@ h2::first-letter {
     font-size: 3rem;
 }
 
-header a:nth-of-type(2) {
+header a :last-child {
     margin-left: 20px;
 }
-
 
 .education .education-list > li:first-child {
     font-style: italic;
