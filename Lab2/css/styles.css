@@ -69,3 +69,8 @@ a[href$=".edu"]::before {
     margin-left: 5px;
     vertical-align: middle;
 }
+
+.skills li:last-child {
+    font-size: 1.3rem;
+    background-color: rgba(120, 120, 120, 0.2);
+}
