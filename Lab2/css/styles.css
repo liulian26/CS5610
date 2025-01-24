@@ -63,3 +63,9 @@ header a:nth-of-type(2) {
 .experience > ul > li~li {
     color: darkgreen;
 }
+
+a[href$=".edu"]::before {
+    content: url(../images/link.png);
+    margin-left: 5px;
+    vertical-align: middle;
+}
