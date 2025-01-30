@@ -4,9 +4,10 @@ body {
   margin: 0 auto;
 }
 
-.main {
+main {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
 }
 
 .card {
@@ -21,9 +22,12 @@ body {
 }
 
 .tags {
-  margin: 0;
-  padding: 0;
-  list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    list-style: none;
 }
 
 .tags > * {
