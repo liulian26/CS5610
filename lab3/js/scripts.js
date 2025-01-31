@@ -33,6 +33,15 @@ function calculatePrice(flavor, size, toppings) {
 function displayOrderSummary(order) {
     // example order object: 
     //{falvor:"mango", size:"medium", toppings:["boba","jelly"], totalPrice: 5.63 }
+    const {flavor, size, toppings} = order;
+
+    const totalPrice = calculatePrice(flavor, size, toppings);
+    const toppingsList = toppings.length > 0 ? toppings.join(", ") : "no toppings";
+
+    // display the order summary
+    console.log(`You have ordered a ${size} ${flavor} bubble tea with these toppings: ${toppingsList}`);
+    console.log(`Total Price: $${totalPrice.toFixed(2)}`);
+
 }
 
 
@@ -40,7 +49,12 @@ function displayOrderSummary(order) {
 // toppings (if any) and call displayOrderSummary function with an order object 
 // as argument.
 function placeOrder(flavor, size, toppings) {
-
-    let order = {flavor:..., size:..., toppings:..., finalPrice:...}
+    const finalPrice = calculatePrice(flavor, size, toppings);
+    let order = {flavor: flavor, size: size, toppings: toppings, finalPrice: finalPrice};
     displayOrderSummary(order)
-    }
+}
+
+// test
+placeOrder("mango", "medium", ["boba", "jelly"]);
+placeOrder("original", "small", ["pudding"]);
+placeOrder("strawberry", "large", []);
