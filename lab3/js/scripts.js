@@ -17,8 +17,19 @@ const prices = {
     }
 };
 
+// function calculatePrice that will receive flavor, size, and an array with all the selected
+function calculatePrice(flavor, size, toppings) {
+    // calculate the price of the order
+    // return the total price
+    let totalPrice = 0;
+    flavorPrice = prices.flavor[flavor];
+    sizePrice = prices.size[size];
+    toppingsPrice = toppings.reduce((total, topping) => total + prices.topping[topping], 0);
+    totalPrice = sizePrice * (flavorPrice + toppingsPrice);
+}
 
-// function to calculate the total price of the order
+
+// function display order summary that will receive an order object as argument
 function displayOrderSummary(order) {
     // example order object: 
     //{falvor:"mango", size:"medium", toppings:["boba","jelly"], totalPrice: 5.63 }
