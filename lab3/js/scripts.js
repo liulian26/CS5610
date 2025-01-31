@@ -26,6 +26,7 @@ function calculatePrice(flavor, size, toppings) {
     sizePrice = prices.size[size];
     toppingsPrice = toppings.reduce((total, topping) => total + prices.topping[topping], 0);
     totalPrice = sizePrice * (flavorPrice + toppingsPrice);
+    return totalPrice;
 }
 
 
@@ -49,12 +50,13 @@ function displayOrderSummary(order) {
 // toppings (if any) and call displayOrderSummary function with an order object 
 // as argument.
 function placeOrder(flavor, size, toppings) {
-    const finalPrice = calculatePrice(flavor, size, toppings);
+    let finalPrice = calculatePrice(flavor, size, toppings);
     let order = {flavor: flavor, size: size, toppings: toppings, finalPrice: finalPrice};
     displayOrderSummary(order)
 }
 
-// test
+
+// Test the functions
 placeOrder("mango", "medium", ["boba", "jelly"]);
-placeOrder("original", "small", ["pudding"]);
-placeOrder("strawberry", "large", []);
+placeOrder("original", "small", []);
+placeOrder("strawberry", "large", ["pudding"]);
