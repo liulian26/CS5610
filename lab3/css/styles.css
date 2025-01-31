@@ -11,7 +11,21 @@ form{
     box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, .2);
     padding: 20px;
     margin: 100px auto;
-
 }
+
+label{
+    display: block;
+    margin-bottom: 8px;
+    text-align: left;
+}
+
+select, button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
 
 
