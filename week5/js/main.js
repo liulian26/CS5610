@@ -13,7 +13,7 @@ function calculateArea() {
     if(isNaN(number)) {
         return "Please enter a valid number";
     }
-    return Math.PI * Math.pow(number, 2);  
+    return Math.PI * Math.pow(number, 2).toFixed(2);  
 }
 
 
