@@ -1,0 +1,17 @@
+body{
+    background-color: white;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+form{
+    background-color: #e4c848;
+    max-width: 400px;
+    border-radius: 10px;
+    box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, .2);
+    padding: 20px;
+    margin: 50px auto;
+
+}
+
+

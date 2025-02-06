@@ -1,0 +1,207 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+header {
+    text-align: center;
+    border-bottom: 2px dotted darkslateblue;
+    padding-bottom: 5px;
+    
+}
+
+#role {
+    font-weight: bold;
+    color: crimson;
+}
+
+h1 {
+    color: #1050aa;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 2.2em;
+}
+
+.index-nav {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 200px;
+    height: 100vh;
+    background-color: #A7D8F0;
+    color: white;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    opacity: 0.7;
+}
+
+.index-nav ul {
+    list-style: none;
+    margin: 20px 0;
+    padding: 0;
+    width: 100%;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.index-nav ul li {
+    margin: 100px 0;
+    gap: 100px;
+}
+
+.index-nav ul li a {
+    font-family: 'Arial', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+.index-nav ul li a:hover {
+    color: crimson;
+    border-radius: 5px;
+}
+
+main {
+    width: 80%;
+    margin: 20 auto;
+}
+
+section {
+    border: 2px dashed brown;
+    padding: 30px;
+    margin-bottom: 30px;
+    background-color: rgba(126, 191, 251, 0.2);
+    width: 119%;
+    margin: 20px auto;
+}
+
+h2::first-letter {
+    font-size: 3rem;
+}
+
+.self-image {
+    max-width: 26%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    border-radius: 100%;
+    opacity: 0.9;
+}
+
+.school-logo {
+    max-width: 20%;
+    height: auto;
+    display: block;
+    margin-top: auto;
+}
+
+figure {
+    text-align: center;
+}
+
+figcaption {
+    font-style: italic;
+    color: goldenrod;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    border-top: 2px dotted darkslateblue;
+    background-color:rgba(255, 255, 255, 0.8) ;
+    color: #1050aa;
+}
+
+footer p {
+    font-size: 1.1rem;
+    line-height: 1.5;
+    margin: 10px 0;
+}
+
+.projects {
+    border: 2px dashed brown;
+    margin: 10px 0;
+}
+
+.card {
+    background-color: rgba(255, 255, 255, 0.5);
+    border: 2px dashed #8B0000;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 300px;
+    max-width: 100%;
+    text-align: center;
+    margin: 0 0 20px 0;
+    font: 1.1em sans-serif;
+    color:rgb(135, 41, 41);
+}
+
+.card h2 {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #1050aa;
+}
+
+.card a {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #1050aa;
+    color: white; 
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.card a:hover {
+    background-color: rgb(234, 152, 168);
+}
+
+a[href*="github"]:hover {
+    color: crimson;
+}
+
+a[href*="github"]::after {
+    content: url(../images/GitHub-Mark-32px.png);
+    margin-left: 5px;
+    vertical-align: middle;
+}
+
+
+header a:visited {
+    color: rgb(237, 122, 127);
+}
+
+.index-page {
+    background-image: url('../images/LA.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.education-page {
+    background-image: url('../images/don_armeni_park.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    font-size: 16px;
+    color: rgb(251, 235, 235);
+}
+
+
+.hobbies-page {
+    background-image: url('../images/van.JPG');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+
+
+
