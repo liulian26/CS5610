@@ -2,8 +2,10 @@ const radiusP = document.querySelector("#radius");
 const resultP = document.querySelector("#result");
 
 
+
 function getNumber() {
     let radius = prompt("Enter the number for a circle radius");
+    radiusP.innerHTML += radius;
     return radius;
 }
 
@@ -19,3 +21,5 @@ function calculateArea() {
 
 const result = calculateArea();
 console.log(result);
+
+resultP.innerHTML += result;
