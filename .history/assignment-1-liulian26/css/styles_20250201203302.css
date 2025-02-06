@@ -1,0 +1,170 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+header {
+    text-align: center;
+    border-bottom: 2px dotted darkslateblue;
+    padding-bottom: 5px;
+    
+}
+
+#role {
+    font-weight: bold;
+    color: crimson;
+}
+
+h1 {
+    color: #1050aa;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 2.2em;
+}
+
+nav {
+    position: fixed; /* 固定位置 */
+    top: 0;
+    left: 0; /* 距离左侧为 0 */
+    width: 200px; /* 固定宽度 */
+    height: 100vh; /* 占满页面高度 */
+    background-color: #1050aa;
+    color: white;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column; /* 垂直排列 */
+    justify-content: start; /* 从顶部开始 */
+    align-items: center; /* 水平居中 */
+}
+
+nav ul {
+    list-style: none;
+    margin: 20px 0;
+    padding: 0;
+    width: 100%; /* 让菜单项占据整个宽度 */
+    text-align: center;
+}
+
+nav ul li {
+    margin: 10px 0; /* 设置菜单项之间的间距 */
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    padding: 10px 15px;
+    font-weight: bold;
+    display: block;
+    transition: background-color 0.3s ease;
+}
+
+nav ul li a:hover {
+    background-color: crimson;
+    border-radius: 5px;
+}
+
+main {
+    width: 80%;
+    margin: 20 auto;
+}
+
+section {
+    border: 2px dashed brown;
+    padding: 30px;
+    margin-bottom: 30px;
+    background-color: rgba(126, 191, 251, 0.2);
+    width: 119%;
+    margin: 20px auto;
+}
+
+body {
+    background-color: rgb(231, 225, 214);
+    font-family: 'Roboto', sans-serif;
+}
+
+h2::first-letter {
+    font-size: 3rem;
+}
+
+.self-image {
+    max-width: 26%;
+    height: auto;
+    display: block;
+    margin-left: auto;
+    border-radius: 100%;
+    opacity: 0.9;
+}
+
+.school-logo {
+    max-width: 20%;
+    height: auto;
+    display: block;
+    margin-top: auto;
+}
+
+figure {
+    text-align: center;
+}
+
+figcaption {
+    font-style: italic;
+    color: goldenrod;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    border-top: 2px dotted darkslateblue;
+    background-color:rgba(255, 255, 255, 0.8) ;
+    color: #1050aa;
+}
+
+footer p {
+    font-size: 1.1rem;
+    line-height: 1.5;
+    margin: 10px 0;
+}
+
+.projects {
+    border: 2px dashed brown;
+    margin: 10px 0;
+}
+
+a[href*="github"]:hover {
+    color: crimson;
+}
+
+a[href*="github"]::after {
+    content: url(../images/GitHub-Mark-32px.png);
+    margin-left: 5px;
+    vertical-align: middle;
+}
+
+
+header a:visited {
+    color: rgb(237, 122, 127);
+}
+
+.index-page {
+    background-image: url('../images/LA.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.education-page {
+    background-image: url('../images/don_armeni_park.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.hobbies-page {
+    background-image: url('../images/van.JPG');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+
+
+

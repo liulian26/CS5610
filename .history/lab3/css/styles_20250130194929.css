@@ -1,0 +1,37 @@
+/* 页面背景 */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    text-align: center;
+}
+
+/* 订单表单样式 */
+form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px; /* 圆角 */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* 添加阴影 */
+    max-width: 400px;
+    margin: 50px auto; /* 居中 */
+}
+
+/* 表单元素间距 */
+label, select, button {
+    display: block;
+    width: 100%;
+    margin: 10px 0;
+    padding: 8px;
+}
+
+/* 按钮样式 */
+button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
