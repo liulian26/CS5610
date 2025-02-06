@@ -72,20 +72,28 @@ function populateShoppingList(shoppingListItems) {
     // update the text of the li wirh the arry item
     // call append/appendChild on ul and pass thr created li
 
-//const button = document.querySelector("#updateImage");
-//function changeButtonText() {
+
+
+const button = document.querySelector("#updateImage");
+// check the storage for its text
+const buttonText = localStorage.getItem("buttonText");
+if (buttonText) {
+    button.innerText = buttonText;
+}
+function changeButtonText() {
     // will be called when user clicks the button
     // change the text
-    //if (button.innerText === "Clik Me!") {
-       // button.innerText = "Cliked!";
-    //} else if (button.innerText === "Cliked!") {
-       // button.innerText = "Clik Me!";
-    //}
+    if (button.innerText === "Clik Me!") {
+       button.innerText = "Cliked!";
+    } else if (button.innerText === "Cliked!") {
+       button.innerText = "Clik Me!";
+    }
+    localStorage.setItem("buttonText", button.innerText);
     // if I want only call one time
     // button.removeEventListener("click", changeButtonText);
-//}
+}
 
-// button.addEventListener("click", changeButtonText);
+button.addEventListener("click", changeButtonText);
 // If i want this called only one time
 //button.addEventListener("click", changeButtonText, {once: true});
 
