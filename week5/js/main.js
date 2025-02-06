@@ -76,12 +76,16 @@ const button = document.querySelector("#updateImage");
 function changeButtonText() {
     // will be called when user clicks the button
     // change the text
-    if (button.innerText === "Clik me!") {
+    if (button.innerText === "Clik Me!") {
         button.innerText = "Cliked!";
     } else if (button.innerText === "Cliked!") {
-        button.innerText = "Clik me!";
+        button.innerText = "Clik Me!";
     }
+    // if I want only call one time
+    // button.removeEventListener("click", changeButtonText);
 }
 
-button.addEventListener("click", changeButtonText);
+// button.addEventListener("click", changeButtonText);
+// If i want this called only one time
+button.addEventListener("click", changeButtonText, {once: true});
 
