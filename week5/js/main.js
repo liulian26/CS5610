@@ -24,3 +24,30 @@ const result = calculateArea();
 console.log(result);
 
 resultP.innerHTML += result;
+
+
+let shoppingItems = ["bread", "cheese", "green pepper"];
+const shoppingList = document.querySelector(".shopping");
+
+function populateShoppingList(shoppingList) {
+     for (let i = 0; i < shoppingItems.length; i++) {
+        const li = document.createElement("li");
+        li.innerText= shoppingList[i];
+        shoppingListElement.append(li);
+     }
+
+    // for (let item of shoppingItems) {
+    //     console.log(item);
+    // }
+
+    // shoppingItems.forEach(function(item)=> {
+    //     console.log(item);
+    // });
+}
+
+populateShoppingList(shoppingList);
+// ul class="shopping"
+// loop in the array
+    // create an li
+    // update the text of the li wirh the arry item
+    // call append/appendChild on ul and pass thr created li
