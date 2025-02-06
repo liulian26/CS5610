@@ -48,44 +48,55 @@ function populateShoppingList(shoppingListItems) {
     //   });
   }
 
-function changeListUsingClass(){
-    const lists = document.querySelectorAll("ul");
-    lists.forEach(list => list.classList.add("squareList"));
-}
+// function changeListUsingClass(){
+    // const lists = document.querySelectorAll("ul");
+    // lists.forEach(list => list.classList.add("squareList"));
+//}
 
-function highlightItems() {
-    const listItems = document.querySelectorAll("li");
-  listItems.forEach(item => {
-    if (item.innerText.toLowerCase().includes("green")) {
-      item.style.color = "green";
-    }
-  });
-}
+//function highlightItems() {
+    //const listItems = document.querySelectorAll("li");
+  //listItems.forEach(item => {
+   // if (item.innerText.toLowerCase().includes("green")) {
+      //item.style.color = "green";
+   // }
+  //});
+//}
 
 
-populateShoppingList(shoppingItems);
-changeListUsingClass();
-highlightItems();
+//populateShoppingList(shoppingItems);
+//changeListUsingClass();
+//highlightItems();
 // ul class="shopping"
 // loop in the array
     // create an li
     // update the text of the li wirh the arry item
     // call append/appendChild on ul and pass thr created li
 
-const button = document.querySelector("#updateImage");
-function changeButtonText() {
+//const button = document.querySelector("#updateImage");
+//function changeButtonText() {
     // will be called when user clicks the button
     // change the text
-    if (button.innerText === "Clik Me!") {
-        button.innerText = "Cliked!";
-    } else if (button.innerText === "Cliked!") {
-        button.innerText = "Clik Me!";
-    }
+    //if (button.innerText === "Clik Me!") {
+       // button.innerText = "Cliked!";
+    //} else if (button.innerText === "Cliked!") {
+       // button.innerText = "Clik Me!";
+    //}
     // if I want only call one time
     // button.removeEventListener("click", changeButtonText);
-}
+//}
 
 // button.addEventListener("click", changeButtonText);
 // If i want this called only one time
-button.addEventListener("click", changeButtonText, {once: true});
+//button.addEventListener("click", changeButtonText, {once: true});
+
+const buttonContainer = document.querySelector(".buttonContainer");
+
+function changeButtonBGolor(event) {
+    // which button had moudr overt it
+    console.log(event.target.innerText);
+    // change the background color of the button
+    event.target.style.backgroundColor = event.target.innerText;
+}
+// setting the listener on the parent of buttons
+buttonContainer.addEventListener("mouseover", changeButtonBGolor);
 
