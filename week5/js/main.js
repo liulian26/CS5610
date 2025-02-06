@@ -72,4 +72,16 @@ highlightItems();
     // update the text of the li wirh the arry item
     // call append/appendChild on ul and pass thr created li
 
+const button = document.querySelector("#updateImage");
+function changeButtonText() {
+    // will be called when user clicks the button
+    // change the text
+    if (button.innerText === "Clik me!") {
+        button.innerText = "Cliked!";
+    } else if (button.innerText === "Cliked!") {
+        button.innerText = "Clik me!";
+    }
+}
+
+button.addEventListener("click", changeButtonText);
 
