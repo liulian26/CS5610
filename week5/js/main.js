@@ -13,9 +13,10 @@ function getNumber() {
 function calculateArea() {
     const number = getNumber();
     if(isNaN(number)) {
-        return "Please enter a valid number";
+        return "Error: Please enter a valid number";
+    } else{
+        return Math.PI * Math.pow(number, 2).toFixed(2);  
     }
-    return Math.PI * Math.pow(number, 2).toFixed(2);  
 }
 
 
