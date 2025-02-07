@@ -21,10 +21,14 @@ const prices = {
 function calculatePrice(flavor, size, toppings) {
     // calculate the price of the order
     // return the total price
-    let totalPrice = 0;
+
+    if (!prices.flavor[flavor] || !prices.size[size]) {
+        return "Error: Invalid flavor or size";
+    }
+
     const flavorPrice = prices.flavor[flavor];
     const sizePrice = prices.size[size];
-    const toppingsPrice = toppings.reduce((total, topping) => total + prices.topping[topping], 0);
+    const toppingsPrice = toppings.reduce((total, topping) => total + (prices.topping[topping] || 0), 0);
     totalPrice = sizePrice * (flavorPrice + toppingsPrice);
     return totalPrice;
 }
