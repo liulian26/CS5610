@@ -45,20 +45,38 @@ function displayOrderSummary(order) {
     summaryElement.textContent = summaryText;
 }
 
+// function for validate selection
+function validateSelection() {
+    // check if the flavor and size are valid
+    const flavor = document.getElementById("flavorSelect").value;
+    const size = document.getElementById("sizeSelect").value;
+
+    if (flavor === "none" || size === "none") {
+        return false;
+    }
+
+    return true;
+}
 
 // placeOrder that will receive flavor, size, and an array with all the selected 
 // toppings (if any) and call displayOrderSummary function with an order object 
 // as argument.
 function placeOrder(flavor, size, toppings) {
-    let finalPrice = calculatePrice(flavor, size, toppings);
-    let order = {flavor: flavor, size: size, toppings: toppings, finalPrice: finalPrice};
+
+    if (!validateSelection()) {
+        return "Error: Please select a valid flavor and size";
+    }
+
+    const falvor= document.getElementById("flavorSelect").value;
+    const size = document.getElementById("sizeSelect").value;
+    const toppings = Array.from(document.querySelectorAll("input[name='topping']:checked")).map((topping) => topping.value);
+
+
+    // calculate the price of the order
+    const totalPrice = calculatePrice(flavor, size, toppings);
+    const order = {flavor, size, toppings, totalPrice};
+
     displayOrderSummary(order)
 }
 
-
-
-
-// Test the functions
-placeOrder("mango", "medium", ["boba", "jelly"]);
-placeOrder("original", "small", []);
-placeOrder("strawberry", "large", ["pudding"]);
+document.getElementById("orderButton").addEventListener("click", placeOrder);
