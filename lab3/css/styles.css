@@ -58,13 +58,13 @@ select:focus{
     margin: 100px auto;
 }
 
-#orderSummaryContainer h2{
+#orderSummary h2{
     font-size: 24px;
     margin-bottom: 20px;
     text-align: left;
 }
 
-#orderSummary{
+#order-summary{
     font-size: 16px;
     text-align: left;
 }

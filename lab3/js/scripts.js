@@ -41,7 +41,7 @@ function displayOrderSummary(order) {
     const summaryText = `You have ordered a ${size} ${flavor} bubble tea with these toppings: ${toppingsList}. Total price: $${order.totalPrice.toFixed(2)}`;
     
     // display the order summary
-    const summaryElement = document.getElementById("orderSummary");
+    const summaryElement = document.getElementById("order-summary");
     summaryElement.textContent = summaryText;
 }
 
@@ -51,26 +51,32 @@ function validateSelection() {
     const flavor = document.getElementById("flavorSelect").value;
     const size = document.getElementById("sizeSelect").value;
 
-    if (flavor === "none" || size === "none") {
+    if (!flavor  || !size) {
         return false;
     }
 
     return true;
 }
 
+document.getElementById("orderButton").addEventListener("click", placeOrder);
+
 // placeOrder that will receive flavor, size, and an array with all the selected 
 // toppings (if any) and call displayOrderSummary function with an order object 
 // as argument.
-function placeOrder(flavor, size, toppings) {
+function placeOrder(event) {
+
+    event.preventDefault();
 
     if (!validateSelection()) {
         return "Error: Please select a valid flavor and size";
     }
 
-    const falvor= document.getElementById("flavorSelect").value;
+    const flavor= document.getElementById("flavorSelect").value;
     const size = document.getElementById("sizeSelect").value;
-    const toppings = Array.from(document.querySelectorAll("input[name='topping']:checked")).map((topping) => topping.value);
-
+    const toppings = Array.from(
+        document.querySelectorAll("#toppingSelect option:checked")
+      ).map((option) => option.value);
+    
 
     // calculate the price of the order
     const totalPrice = calculatePrice(flavor, size, toppings);
@@ -79,4 +85,4 @@ function placeOrder(flavor, size, toppings) {
     displayOrderSummary(order)
 }
 
-document.getElementById("orderButton").addEventListener("click", placeOrder);
+
