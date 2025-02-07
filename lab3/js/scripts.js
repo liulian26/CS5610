@@ -22,9 +22,9 @@ function calculatePrice(flavor, size, toppings) {
     // calculate the price of the order
     // return the total price
     let totalPrice = 0;
-    flavorPrice = prices.flavor[flavor];
-    sizePrice = prices.size[size];
-    toppingsPrice = toppings.reduce((total, topping) => total + prices.topping[topping], 0);
+    const flavorPrice = prices.flavor[flavor];
+    const sizePrice = prices.size[size];
+    const toppingsPrice = toppings.reduce((total, topping) => total + prices.topping[topping], 0);
     totalPrice = sizePrice * (flavorPrice + toppingsPrice);
     return totalPrice;
 }
@@ -34,15 +34,15 @@ function calculatePrice(flavor, size, toppings) {
 function displayOrderSummary(order) {
     // example order object: 
     //{falvor:"mango", size:"medium", toppings:["boba","jelly"], totalPrice: 5.63 }
-    const {flavor, size, toppings} = order;
+    const {flavor, size, toppings, totalPrice} = order;
 
-    const totalPrice = calculatePrice(flavor, size, toppings);
+    // generate the order summary
     const toppingsList = toppings.length > 0 ? toppings.join(", ") : "no toppings";
-
+    const summaryText = `You have ordered a ${size} ${flavor} bubble tea with these toppings: ${toppingsList}. Total price: $${order.totalPrice.toFixed(2)}`;
+    
     // display the order summary
-    console.log(`You have ordered a ${size} ${flavor} bubble tea with these toppings: ${toppingsList}`);
-    console.log(`Total Price: $${totalPrice.toFixed(2)}`);
-
+    const summaryElement = document.getElementById("orderSummary");
+    summaryElement.textContent = summaryText;
 }
 
 
@@ -54,6 +54,8 @@ function placeOrder(flavor, size, toppings) {
     let order = {flavor: flavor, size: size, toppings: toppings, finalPrice: finalPrice};
     displayOrderSummary(order)
 }
+
+
 
 
 // Test the functions
