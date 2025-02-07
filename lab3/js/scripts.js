@@ -74,7 +74,8 @@ function placeOrder(event) {
     event.preventDefault();
 
     if (!validateSelection()) {
-        return "Error: Please select a valid flavor and size";
+        alert("Error: Please select a valid flavor and size");
+        return;
     }
 
     const flavor= document.getElementById("flavorSelect").value;
