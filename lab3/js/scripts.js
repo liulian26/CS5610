@@ -37,8 +37,10 @@ function displayOrderSummary(order) {
     const {flavor, size, toppings, totalPrice} = order;
 
     // generate the order summary
-    const toppingsList = toppings.length > 0 ? toppings.join(", ") : "no toppings";
-    const summaryText = `You have ordered a ${size} ${flavor} bubble tea with these toppings: ${toppingsList}. Total price: $${order.totalPrice.toFixed(2)}`;
+    const toppingsList = toppings.length > 0 
+    ? `with these toppings: ${toppings.join(", ")}`
+    : "with no toppings";
+    const summaryText = `You have ordered a ${size} ${flavor} bubble tea ${toppingsList}. Total price: $${order.totalPrice.toFixed(2)}`;
     
     // display the order summary
     const summaryElement = document.getElementById("order-summary");
