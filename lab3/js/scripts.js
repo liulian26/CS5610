@@ -21,10 +21,14 @@ const prices = {
 function calculatePrice(flavor, size, toppings) {
     // calculate the price of the order
     // return the total price
-    let totalPrice = 0;
-    flavorPrice = prices.flavor[flavor];
-    sizePrice = prices.size[size];
-    toppingsPrice = toppings.reduce((total, topping) => total + prices.topping[topping], 0);
+
+    if (!prices.flavor[flavor] || !prices.size[size]) {
+        return "Error: Invalid flavor or size";
+    }
+
+    const flavorPrice = prices.flavor[flavor];
+    const sizePrice = prices.size[size];
+    const toppingsPrice = toppings.reduce((total, topping) => total + (prices.topping[topping] || 0), 0);
     totalPrice = sizePrice * (flavorPrice + toppingsPrice);
     return totalPrice;
 }
@@ -34,29 +38,58 @@ function calculatePrice(flavor, size, toppings) {
 function displayOrderSummary(order) {
     // example order object: 
     //{falvor:"mango", size:"medium", toppings:["boba","jelly"], totalPrice: 5.63 }
-    const {flavor, size, toppings} = order;
+    const {flavor, size, toppings, totalPrice} = order;
 
-    const totalPrice = calculatePrice(flavor, size, toppings);
-    const toppingsList = toppings.length > 0 ? toppings.join(", ") : "no toppings";
-
+    // generate the order summary
+    const toppingsList = toppings.length > 0 
+    ? `with these toppings: ${toppings.join(", ")}`
+    : "with no toppings";
+    const summaryText = `You have ordered a ${size} ${flavor} bubble tea ${toppingsList}. Total price: $${order.totalPrice.toFixed(2)}`;
+    
     // display the order summary
-    console.log(`You have ordered a ${size} ${flavor} bubble tea with these toppings: ${toppingsList}`);
-    console.log(`Total Price: $${totalPrice.toFixed(2)}`);
-
+    const summaryElement = document.getElementById("order-summary");
+    summaryElement.textContent = summaryText;
 }
 
+// function for validate selection
+function validateSelection() {
+    // check if the flavor and size are valid
+    const flavor = document.getElementById("flavorSelect").value;
+    const size = document.getElementById("sizeSelect").value;
+
+    if (!flavor  || !size) {
+        return false;
+    }
+
+    return true;
+}
+
+document.getElementById("orderButton").addEventListener("click", placeOrder);
 
 // placeOrder that will receive flavor, size, and an array with all the selected 
 // toppings (if any) and call displayOrderSummary function with an order object 
 // as argument.
-function placeOrder(flavor, size, toppings) {
-    let finalPrice = calculatePrice(flavor, size, toppings);
-    let order = {flavor: flavor, size: size, toppings: toppings, finalPrice: finalPrice};
+function placeOrder(event) {
+
+    event.preventDefault();
+
+    if (!validateSelection()) {
+        alert("Error: Please select a valid flavor and size");
+        return;
+    }
+
+    const flavor= document.getElementById("flavorSelect").value;
+    const size = document.getElementById("sizeSelect").value;
+    const toppings = Array.from(
+        document.querySelectorAll("#toppingSelect option:checked")
+      ).map((option) => option.value);
+    
+
+    // calculate the price of the order
+    const totalPrice = calculatePrice(flavor, size, toppings);
+    const order = {flavor, size, toppings, totalPrice};
+
     displayOrderSummary(order)
 }
 
 
-// Test the functions
-placeOrder("mango", "medium", ["boba", "jelly"]);
-placeOrder("original", "small", []);
-placeOrder("strawberry", "large", ["pudding"]);

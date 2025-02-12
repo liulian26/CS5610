@@ -9,20 +9,21 @@
 
   <body>
     <main>
-      <form id="bubbleTeaForm">
+      <form id="bubbleTeaForm" class="container">
         <h1>Bubble Tea Order Form</h1>
 
         <!--- choose a flavor -->
-        <label for="flavor">Choose a flavor:</label>
-        <select id="flavor">
+        <label for="flavorSelect">Choose a flavor:</label>
+        <select id="flavorSelect">
+          <option value="" disabled selected>Please choose the flavor</option>
           <option value="original">Original</option>
           <option value="mango">Mango</option>
           <option value="strawberry">Strawberry</option>
         </select> 
 
         <!--- choose a size -->
-        <label for="size">Choose a size:</label>
-        <select id = "size">
+        <label for="sizeSelect">Choose a size:</label>
+        <select id = "sizeSelect">
         <option value="" disabled selected>Please choose the size</option>
           <option value="small">Small</option>
           <option value="medium">Medium</option>
@@ -30,8 +31,8 @@
         </select>
 
         <!--- choose a topping -->
-        <label for="topping">Choose a topping:</label>
-        <select id="topping" multiple>
+        <label for="toppingSelect">Choose a topping:</label>
+        <select id="toppingSelect" multiple>
             <option value="" disabled selected>Please choose the topping</option>
             <option value="boba">Boba</option>
             <option value="jelly">Jelly</option>
@@ -39,9 +40,14 @@
         </select>
         
         <!-- submit the order-->
-        <button type="Place Order">Place Order</button>
-
+        <button type="Place Order" id = "orderButton">Place Order</button>
       </form>
+
+      <!--- display the order summary -->
+      <div id="orderSummary" class="container">
+        <h2>Order Summary</h2>
+        <p id="order-summary"></p>
+      </div>
     </main>
   </body>
 </html>
