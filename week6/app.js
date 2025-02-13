@@ -31,7 +31,7 @@ const app = express();
 
 
 app.get('/', function(req, res) {
-    res.send('Hello World!')
+    res.send('Hello and Welcome to my site!')
   });
 
 const port = 3000;
