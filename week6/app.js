@@ -33,6 +33,10 @@ const app = express();
 app.get('/', function(req, res) {
     res.send('Hello and Welcome to my site!')
   });
+  
+app.get('/tasks', function(req, res) {
+    res.send('<h1>List of all the tasks</h1>')
+  });
 
 const port = 3000;
 
