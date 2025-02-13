@@ -6,3 +6,4 @@ function log()
 
 module.exports.log = log;
 module.exports.version = version;
+console.log(module);
