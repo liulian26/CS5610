@@ -8,5 +8,15 @@ fs.writeFile('data.txt', 'This is a message to you!', (err) => {
         console.log("write failed");
     }else{
         console.log("write successful");
+
+        // reading the file
+        fs.readFile('data.txt', 'utf8', (err, data) => {
+            if (err) {
+                console.log("Read failed");
+            }else{
+                console.log("Read successful");
+                console.log(data);
+            }
+        });
     }
 });
