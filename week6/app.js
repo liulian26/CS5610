@@ -38,6 +38,12 @@ app.get('/tasks', function(req, res) {
     res.send('<h1>List of all the tasks</h1>')
   });
 
+app.get('/tasks/:taskId', function(req, res) {
+    console.log(req.params.taskId);
+    res.send(`<p>You are viewing ${req.params.taskId}</p>` );
+});
+
+
 const port = 3000;
 
 app.listen(port, function() {
