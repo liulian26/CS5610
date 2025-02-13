@@ -36,6 +36,8 @@ app.get('/', function(req, res) {
   
 app.get('/tasks', function(req, res) {
     res.send('<h1>List of all the tasks</h1>')
+    console.log(req.params);
+    console.log(req.query);
   });
 
 app.get('/tasks/:taskId', function(req, res) {
