@@ -68,5 +68,21 @@ function writeAndReadFile() {
           console.log("Operation failed", err);
       });
 }
+
+// Function using async/await
+async function writeAndReadFileAsync() {
+  try {
+      await fs.promises.writeFile('data.txt', 'This is a message to you!');
+      console.log("Write successful");
+      
+      const data = await fs.promises.readFile('data.txt', 'utf8');
+      console.log("Read successful");
+      console.log(data);
+  } catch (err) {
+      console.log("Operation failed", err);
+  }
+}
+
+
 // Run both functions
 writeAndReadFile();
