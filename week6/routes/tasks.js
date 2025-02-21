@@ -12,7 +12,7 @@ router.get("/", async(req, res) => {
             );
             res.json(response.data);
         } catch (err) {
-            console.log(err.message);
+            console.log(err);
         }
     // const promise = axios.get("https://jsonplaceholder.typicode.com/todos/");
     // promise
@@ -38,7 +38,7 @@ router.get("/:taskId", async (req, res) => {
           completed: response.data.completed,
         });
       } catch (err) {
-        console.log(err.message);
+        console.log(err);
         
       }
   //res is responsible to send data/files
