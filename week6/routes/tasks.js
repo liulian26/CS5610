@@ -6,14 +6,13 @@ const axios = require("axios");
 // this is the handler for /tasks
 router.get("/", asymc(req, res) => {
     //send a get request to jsonPlaceholder API
-    router.get("/", async (req, res) => {
-        try {
-          const response = await axios.get(
+    try {
+        const response = await axios.get(
             "https://jsonplaceholder.typicode.com/todo/"
-          );
-          res.json(response.data);
+            );
+            res.json(response.data);
         } catch (err) {
-          console.log(err.message);
+            console.log(err.message);
         }
     // const promise = axios.get("https://jsonplaceholder.typicode.com/todos/");
     // promise
