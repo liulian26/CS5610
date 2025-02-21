@@ -25,11 +25,24 @@ router.get("/", asymc(req, res) => {
 });
 
 // send a get request to jsonPlaceholder API and consume the promise using .then/.catch
-router.get("/:taskId", (req, res) => {
+router.get("/:taskId", async(req, res) => {
+    //send a get request to jsonPlaceholder API and consume the promise using async/await
+    try {
+        const response = await axios.get(
+            `https://jsonplaceholder.typicode.com/todos/${req.params.taskId}`
+        );
+        console.log(response.data);
+        res.render("task", {
+          id: req.params.taskId,
+          title: response.data.title,
+          completed: response.data.completed,
+        });
+      } catch (err) {
+        console.log(err);
+      }
   //res is responsible to send data/files
   //   console.log(req.params.taskId);
   //   res.send(`<p>you are viewing task ${req.params.taskId}</p>`);
-  res.render("task", { id: req.params.taskId });
 });
 
 
