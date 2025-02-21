@@ -4,11 +4,11 @@ const router = express.Router();
 const axios = require("axios");
 
 // this is the handler for /tasks
-router.get("/", asymc(req, res) => {
+router.get("/", async(req, res) => {
     //send a get request to jsonPlaceholder API
     try {
         const response = await axios.get(
-            "https://jsonplaceholder.typicode.com/todo/"
+            "https://jsonplaceholder.typicode.com/todos/"
             );
             res.json(response.data);
         } catch (err) {
@@ -25,7 +25,7 @@ router.get("/", asymc(req, res) => {
 });
 
 // send a get request to jsonPlaceholder API and consume the promise using .then/.catch
-router.get("/:taskId", async(req, res) => {
+router.get("/:taskId", async (req, res) => {
     //send a get request to jsonPlaceholder API and consume the promise using async/await
     try {
         const response = await axios.get(
@@ -38,7 +38,8 @@ router.get("/:taskId", async(req, res) => {
           completed: response.data.completed,
         });
       } catch (err) {
-        console.log(err);
+        console.log(err.message);
+        
       }
   //res is responsible to send data/files
   //   console.log(req.params.taskId);
