@@ -104,10 +104,9 @@ app.get("/", (req, res) => {
   res.send("Hello and welcome to my site");
 });
 
-app.get("/tasks/:taskId", (req, res) => {
+app.get("/tasks", (req, res) => {
   //res is responsible to send data/files
-  console.log(req.params.taskId);
-  res.send(`<p>you are viewing task ${req.params.taskId}</p>`);
+  res.send(`<h1>List of all tasks</h1>`);
 });
 
 const port = 3000;
