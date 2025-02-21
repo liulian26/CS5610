@@ -104,6 +104,11 @@ app.get("/", (req, res) => {
   res.send("Hello and welcome to my site");
 });
 
+app.get("/tasks/:taskId", (req, res) => {
+  //res is responsible to send data/files
+  console.log(req.params.taskId);
+  res.send(`<p>you are viewing task ${req.params.taskId}</p>`);
+});
 
 const port = 3000;
 app.listen(port, function () {

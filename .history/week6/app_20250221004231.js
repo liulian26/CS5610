@@ -104,6 +104,10 @@ app.get("/", (req, res) => {
   res.send("Hello and welcome to my site");
 });
 
+app.get("/tasks", (req, res) => {
+  //res is responsible to send data/files
+  res.send(`<h1>List of all tasks</h1>`);
+});
 
 const port = 3000;
 app.listen(port, function () {

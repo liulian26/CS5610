@@ -87,7 +87,6 @@
 const express = require('express');
 const app = express();
 
-
 app.set('view engine', 'pug');
 app.set('views', './views');
 
@@ -104,9 +103,7 @@ app.get("/", (req, res) => {
   res.send("Hello and welcome to my site");
 });
 
-
 const port = 3000;
 app.listen(port, function () {
   console.log(`Example app listening on port ${port}!`);
 });
-

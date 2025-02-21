@@ -104,9 +104,7 @@ app.get("/", (req, res) => {
   res.send("Hello and welcome to my site");
 });
 
-
 const port = 3000;
 app.listen(port, function () {
   console.log(`Example app listening on port ${port}!`);
 });
-
