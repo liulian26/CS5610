@@ -2,7 +2,7 @@
 
 const fs = require('fs');
 //console.log(fs);
-function writeBacke(){}
+// function writeBacke(){}
 // fs.writeFile('data.txt', 'This is a message to you!', (err) => {
 //     if (err) {
 //         console.log("write failed");
@@ -26,7 +26,7 @@ function writeBacke(){}
 // const express = require('express');
 // console.log(express);
 
-const express = require('express');
+/* const express = require('express');
 const app = express();
 
 
@@ -51,3 +51,22 @@ const port = 3000;
 app.listen(port, function() {
     console.log(`Example app listening on port ${port}!`)
   });
+ */
+
+// Function to write and read a file using Promises with .then() and .catch()
+function writeAndReadFile() {
+  fs.promises.writeFile('data.txt', 'This is a message to you!')
+      .then(() => {
+          console.log("Write successful");
+          return fs.promises.readFile('data.txt', 'utf8');
+      })
+      .then((data) => {
+          console.log("Read successful");
+          console.log(data);
+      })
+      .catch((err) => {
+          console.log("Operation failed", err);
+      });
+}
+// Run both functions
+writeAndReadFile();
