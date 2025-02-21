@@ -5,21 +5,13 @@ const axios = require("axios");
 
 // this is the handler for /tasks
 router.get("/", asymc(req, res) => {
-    try {
-        const response = await axios.get(
-            "https://jsonplaceholder.typicode.com/todos"
-        );
+    //send a get request to jsonPlaceholder API
+    const promise = axios.get("https://jsonplaceholder.typicode.com/todo/");
+    promise
+      .then((response) => {
         res.json(response.data);
-    } catch (error) {
-        console.log(error.message);
-    }
-    //send a get request to jsonPlaceholder API and consume the promise using .then/.catch
-  //   const promise = axios.get("https://jsonplaceholder.typicode.com/todo/");
-  //   promise
-  //     .then((response) => {
-  //       res.json(response.data);
-  //     })
-  //     .catch((err) => console.log(err.status));
+      })
+      .catch((err) => console.log(err.status));
   //res is responsible to send data/files
   //   res.send("<h1>List of all tasks</h1>"); 
 });
