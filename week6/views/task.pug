@@ -4,9 +4,10 @@ head
   title= "Task Details"
 body
   h1 You are viewing task #{id} using a template
-  p The title of the task is #{title}
-  if completed
-    p The task is completed 
-  else
-    p The task is not completed
-  p #{username} is responsible for this
+  ul
+    li The title of the task is #{title}
+    if completed
+      li The task is completed 
+    else
+      li The task is not completed
+    li #{username} is responsible for this
