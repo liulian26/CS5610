@@ -1,0 +1,70 @@
+body{
+    background-color: white;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+form{
+    background-color: #e6ed89;
+    max-width: 400px;
+    border-radius: 10px;
+    box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, .2);
+    padding: 20px;
+    margin: 100px auto;
+}
+
+label{
+    display: block;
+    margin-bottom: 8px;
+    text-align: left;
+}
+
+select, button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+button{
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover{
+    background-color: #45a049;
+}
+
+select[mutiple]{
+    height: 100px;
+    padding: 5px;
+}
+
+select:hover,
+select:focus{
+    border-color: #333;
+}
+
+.container{
+    background-color: #e6ed89;
+    max-width: 400px;
+    border-radius: 10px;
+    box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, .2);
+    padding: 20px;
+    margin: 100px auto;
+}
+
+#orderSummaryContainer h2{
+    font-size: 24px;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+#orderSummary{
+    font-size: 16px;
+    text-align: left;
+}

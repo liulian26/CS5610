@@ -1,0 +1,298 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+header {
+    text-align: center;
+    padding-bottom: 5px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100px;
+    z-index: 1000;
+    
+}
+
+#role {
+    font-weight: bold;
+    color: crimson;
+}
+
+body {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+
+h1 {
+    color: #1050aa;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 2.2em;
+}
+
+
+main {
+    width: 80%;
+    margin-right: auto;
+}
+
+section {
+    border: 2px dashed brown;
+    padding: 30px;
+    background-color: rgba(126, 191, 251, 0.2);
+    width: 119%;
+    margin: 20px auto;
+}
+
+h2::first-letter {
+    font-size: 3rem;
+}
+
+.self-image {
+    max-width: 26%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    border-radius: 100%;
+    opacity: 0.9;
+}
+
+.school-logo {
+    max-width: 20%;
+    height: auto;
+    display: block;
+    margin-top: auto;
+}
+
+figure {
+    text-align: center;
+}
+
+figcaption {
+    font-style: italic;
+    font-size: 3rem;
+    color: goldenrod;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color:rgba(255, 255, 255, 0.8) ;
+    color: #1050aa;
+}
+
+footer p {
+    font-size: 1.1rem;
+    line-height: 1.5;
+    margin: 10px 0;
+}
+
+
+.projects {
+    margin: 10px 0;
+}
+
+.card {
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+    padding: 20px;
+    width: 300px;
+    max-width: 100%;
+    text-align: center;
+    margin: 0 0 20px 0;
+    font: 1.1em sans-serif;
+    color:rgb(135, 41, 41);
+}
+
+.card h2 {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #1050aa;
+}
+
+.card a {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #1050aa;
+    color: white; 
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.card a:hover {
+    background-color: rgb(234, 152, 168);
+}
+
+a[href*="github"]:hover {
+    color: crimson;
+}
+
+a[href*="github"]::after {
+    content: url(../images/GitHub-Mark-32px.png);
+    margin-left: 5px;
+    vertical-align: middle;
+}
+
+.index-page {
+    background-image: url('../images/LA.jpeg');
+    font-size: 16px;
+}
+
+.education-page {
+    background-image: url('../images/don_armeni_park.jpeg');
+    color: rgb(251, 235, 235);
+    font-size: 20px;
+}
+
+
+.hobbies-page {
+    background-image: url('../images/van.JPG');
+    color: rgb(253, 228, 39);
+    font-size: 20px;
+}
+
+
+.nav-bar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #5586cb;
+    opacity: 0.9;
+    color: white;
+    z-index: 1000;
+    text-align: center;
+}
+
+.nav-bar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 20px;
+}
+
+
+.nav-bar ul li {
+    margin: 0 15px;
+}
+
+.nav-bar ul li a {
+    text-decoration: none;
+    color: white;
+    padding: 10px 15px;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.nav-bar ul li a:hover {
+    background-color: rgb(227, 71, 102);
+    border-radius: 3px;
+}
+
+
+.nav-bar ul li a:visited {
+    color: rgb(241, 109, 109);
+}
+
+/* Dark theme */
+.dark-theme {
+    background-color: #333;
+    color: white;
+    width: 100%;
+    height: auto;
+    padding: 10px;
+    margin: 10px auto;
+    text-align: auto;
+    border-radius: 10px;
+}
+
+.dark-theme header {
+    background-color: #333;
+    border-bottom: 2px dotted white;
+}
+
+.dark-theme .nav-bar {
+    background-color: #222;
+}
+
+.dark-theme .card,
+.dark-theme #date-time-section {
+    background-color: #444;
+    color: white;
+}
+
+/* Switch theme button */
+.dark-theme #theme-toggle {
+    background-color: white;
+    color: #333;
+}
+
+.dark-theme #theme-toggle:hover {
+    background-color: grey;
+}
+
+
+.education-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    align-items: center;
+}
+
+.education-info {
+    text-align: left;
+    padding-left: 20px;
+}
+
+.education-logo {
+    text-align: right;
+    padding-right: 20px;
+}
+
+.school-logo {
+    max-width: 80%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+/* date time section */
+date-time-section {
+    margin: 20px auto;
+    padding: 15px;
+    background-color: white;
+    border: 2px dashed brown;
+    width: 50%;
+    text-align: center;
+}
+
+#date-time-button {
+    margin-top: 10px;
+    padding: 8px 15px;
+    background-color: #1050aa;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    position: relative;
+    pointer-events: auto;
+    z-index: 1000;
+}
+
+#date-radio,
+#time-radio {
+    position: relative;
+    z-index: 1000; 
+    pointer-events: auto;
+}
+
+
+#date-time-button:hover {
+    background-color: rgb(234, 152, 168);
+}
