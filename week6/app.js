@@ -83,7 +83,9 @@
 
 // // Run both functions
 // writeAndReadFile();
-
+const db = require('./db');
+require('dotenv').config();
+console.log(process.env);
 const express = require('express');
 const app = express();
 
@@ -106,7 +108,11 @@ app.get("/", (req, res) => {
 
 
 const port = 3000;
-app.listen(port, function () {
+app.listen(port, async function () {
   console.log(`Example app listening on port ${port}!`);
+  // connect to db
+  await db.connect();
+  console.log("Connected to the database");
+  db.addToDB({task: "Reading", user:"123"});
 });
 
