@@ -92,6 +92,7 @@ const app = express();
 
 app.set('view engine', 'pug');
 app.set('views', './views');
+app.set('views', __dirname + '/views')
 
 // Serve static files
 app.use(express.static("public"));
@@ -116,6 +117,8 @@ app.listen(port, async function () {
   // connect to db
   await db.connect();
   console.log("Connected to the database");
-  db.addToDB({task: "Reading", user:"123"});
+  const testTask = { task: "Reading", user: "123", completed: false };
+  const result = await db.addToDB(testTask);
+  console.log("✅ Task inserted with ID:", result);
 });
 
