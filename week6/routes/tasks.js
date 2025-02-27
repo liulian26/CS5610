@@ -31,15 +31,25 @@ router.get("/:taskId", async (req, res) => {
         const response = await axios.get(
             `https://jsonplaceholder.typicode.com/todos/${req.params.taskId}`
         );
-        console.log(response.data);
+        const task = response.data;
+        // get user information by user id
+        const userResponse = await axios.get(
+            `https://jsonplaceholder.typicode.com/users/${task.userId}`
+        );
+        const user = userResponse.data;
+        // console.log(response.data);
         res.render("task", {
-          id: req.params.taskId,
-          title: response.data.title,
-          completed: response.data.completed,
+        //   id: req.params.taskId,
+        //   title: response.data.title,
+        //   completed: response.data.completed,
+
+        id: task.id,
+        title: task.title,
+        completed: task.completed,
+        username: user.name,
         });
       } catch (err) {
         console.log(err);
-        
       }
   //res is responsible to send data/files
   //   console.log(req.params.taskId);
