@@ -1,7 +1,8 @@
 const {MongoClient} = require('mongodb'); 
+require('dotenv').config();
 
 const url = 
-    "mongodb+srv://atlas-sample-dataset-load-67c0bdcae5756f3d10535b3b:D7YKNOZNleUjO9LL@cluster0.f77k2.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+    "mongodb+srv://123:D7YKNOZNleUjO9LL@cluster0.f77k2.mongodb.net/cs5610?retryWrites=true&w=majority&appName=Cluster0";
 const client = new MongoClient(url);
 
 module.exports = {

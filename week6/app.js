@@ -84,8 +84,8 @@
 // // Run both functions
 // writeAndReadFile();
 const db = require('./db');
-require('dotenv').config();
-console.log(process.env);
+// require('dotenv').config();
+// console.log(process.env);
 const express = require('express');
 const app = express();
 
@@ -95,6 +95,9 @@ app.set('views', './views');
 
 // Serve static files
 app.use(express.static("public"));
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 // Route handler for /tasks
 const tasksRouter = require('./routes/tasks');

@@ -3,6 +3,19 @@ const express = require("express");
 const router = express.Router();
 const axios = require("axios");
 
+router.post("/", async(req, res) => {
+    try{
+        //we will receive data and write it to db
+        console.log("req.body", req.body);
+        await db.addToDB(req.body);
+        res.send("Task added to database");
+    } catch(err){
+        console.log(err);
+        res.send("post handler", err);
+
+    }
+});
+
 // this is the handler for /tasks
 router.get("/", async(req, res) => {
     //send a get request to jsonPlaceholder API
@@ -23,6 +36,7 @@ router.get("/", async(req, res) => {
   //res is responsible to send data/files
   //   res.send("<h1>List of all tasks</h1>"); 
 });
+
 
 // send a get request to jsonPlaceholder API and consume the promise using .then/.catch
 router.get("/:taskId", async (req, res) => {
