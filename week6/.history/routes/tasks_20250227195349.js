@@ -12,7 +12,7 @@ router.get("/", async(req, res) => {
         res.status(200).json(tasks);
     } catch(err){
         console.error("Error fetching tasks:", err);
-        res.status(500).json({ error: "Internal Server Error", details: err.message });
+        res.status(500).send("Internal Server Error", err);
     }
 });
 

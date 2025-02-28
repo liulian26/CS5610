@@ -6,22 +6,9 @@ const axios = require("axios");
 const db = require("../db");
 
 
-router.get("/", async(req, res) => {
-    try{
-        const tasks = await db.getAllTasks();
-        res.status(200).json(tasks);
-    } catch(err){
-        console.error("Error fetching tasks:", err);
-        res.status(500).json({ error: "Internal Server Error", details: err.message });
-    }
-});
-
-
 router.get("/newtask", async(req, res) => {
     res.render("tasksForm");
 });
-
-
 
 router.post("/", async(req, res) => {
     try{
@@ -34,6 +21,16 @@ router.post("/", async(req, res) => {
         console.log(err);
         res.send("post handler", err);
 
+    }
+});
+
+router.get("/", async(req, res) => {
+    try{
+        const tasks = await db.getAllTasks();
+        res.status(200).res.json(tasks);
+    } catch(err){
+        console.error("Error fetching tasks:", err);
+        res.status(500).send("Internal Server Error");
     }
 });
 

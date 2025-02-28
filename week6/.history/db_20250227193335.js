@@ -1,11 +1,11 @@
 require('dotenv').config();
-const {MongoClient} = require('mongodb');
-const url = process.env.MongoDB_URI;
+console.log("DEBUG: MONGO_URI =", process.env.MONGO_URI);
+const {MongoClient} = require('mongodb'); 
+const { get } = require('./routes/tasks');
+
+
+const url = process.env.MONGO_URI;
 const client = new MongoClient(url);
-
-// const { get } = require('./routes/tasks');
-
-
 
 module.exports = {
     connect: async function() {
@@ -17,7 +17,6 @@ module.exports = {
         try {
             const result = await client.db("cs5610").collection("tasks").insertOne(doc);
             console.log("Document added ", result.insertedId);
-            return result.insertedId;
 
         } catch (err) {
             console.log("addToDB", err);
@@ -30,7 +29,6 @@ module.exports = {
             // get all task
             const cursor = client.db("cs5610").collection("tasks").find();
             const tasks = await cursor.toArray();
-            console.log("tasks", tasks);
             return tasks;
         } catch (err) {
             console.log("getAllTasks", err);
