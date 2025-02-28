@@ -68,6 +68,8 @@ router.get("/:taskId", async (req, res) => {
         const taskId = req.params.taskId;
         const task = await db.findTask({ _id: new ObjectId(taskId) });
 
+        const formattedDate = task.date ? new Date(task.date).toISOString().split("T")[0] : "No due date";
+
         res.render("task", {
         //   id: req.params.taskId,
         //   title: response.data.title,
@@ -77,7 +79,7 @@ router.get("/:taskId", async (req, res) => {
         title: task.task,
         completed: task.completed,
         username: task.user,
-        date: req.body.date,
+        date: formattedDate
         });
       } catch (err) {
         console.log(err);
