@@ -76,7 +76,7 @@ router.get("/:taskId", async (req, res) => {
         id: task.id,
         title: task.title,
         completed: task.completed,
-        username: task.user,
+        username: user.name,
         });
       } catch (err) {
         console.log(err);
