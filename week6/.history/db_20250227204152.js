@@ -52,6 +52,5 @@ module.exports = {
     },
 };
 
-// test
-// const db = require("./db");
-// db.findTask({ _id: new ObjectId("67c0cb54ae952583a380f23c") }).then(console.log);
+const db = require("./db");
+db.findTask({ _id: new ObjectId("67c0cb54ae952583a380f23c") }).then(console.log);
