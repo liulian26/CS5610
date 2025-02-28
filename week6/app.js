@@ -83,16 +83,22 @@
 
 // // Run both functions
 // writeAndReadFile();
-
+const db = require('./db');
+// require('dotenv').config();
+// console.log(process.env);
 const express = require('express');
 const app = express();
 
 
 app.set('view engine', 'pug');
 app.set('views', './views');
+app.set('views', __dirname + '/views')
 
 // Serve static files
 app.use(express.static("public"));
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 // Route handler for /tasks
 const tasksRouter = require('./routes/tasks');
@@ -106,7 +112,13 @@ app.get("/", (req, res) => {
 
 
 const port = 3000;
-app.listen(port, function () {
+app.listen(port, async function () {
   console.log(`Example app listening on port ${port}!`);
+  // connect to db
+  await db.connect();
+  console.log("Connected to the database");
+  const testTask = { task: "Reading", user: "123", completed: false };
+  const result = await db.addToDB(testTask);
+  console.log("✅ Task inserted with ID:", result);
 });
 
