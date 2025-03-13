@@ -119,6 +119,6 @@ app.listen(port, async function () {
   console.log("Connected to the database");
   const testTask = { task: "Reading", user: "123", completed: false };
   const result = await db.addToDB(testTask);
-  console.log("✅ Task inserted with ID:", result);
+  console.log("Task inserted with ID:", result);
 });
 

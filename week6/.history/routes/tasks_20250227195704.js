@@ -2,7 +2,6 @@
 const express = require("express");
 const router = express.Router();
 const axios = require("axios");
-const { ObjectId } = require("mongodb");
 
 const db = require("../db");
 
@@ -10,8 +9,7 @@ const db = require("../db");
 router.get("/", async(req, res) => {
     try{
         const tasks = await db.getAllTasks();
-        console.log("tasks", tasks);
-        res.render("tasksList", { tasks });
+        res.status(200).json(tasks);
     } catch(err){
         console.error("Error fetching tasks:", err);
         res.status(500).json({ error: "Internal Server Error", details: err.message });
@@ -65,19 +63,25 @@ router.post("/", async(req, res) => {
 router.get("/:taskId", async (req, res) => {
     //send a get request to jsonPlaceholder API and consume the promise using async/await
     try {
-        const taskId = req.params.taskId;
-        const task = await db.findTask({ _id: new ObjectId(taskId) });
-
+        const response = await axios.get(
+            `https://jsonplaceholder.typicode.com/todos/${req.params.taskId}`
+        );
+        const task = response.data;
+        // get user information by user id
+        const userResponse = await axios.get(
+            `https://jsonplaceholder.typicode.com/users/${task.userId}`
+        );
+        const user = userResponse.data;
+        // console.log(response.data);
         res.render("task", {
         //   id: req.params.taskId,
         //   title: response.data.title,
         //   completed: response.data.completed,
 
-        id: task._id,
-        title: task.task,
+        id: task.id,
+        title: task.title,
         completed: task.completed,
-        username: task.user,
-        date: task.date,
+        username: user.name,
         });
       } catch (err) {
         console.log(err);
