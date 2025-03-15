@@ -1,9 +1,9 @@
-import React from "react";
+import React,{useState} from "react";
 import Task from "./Task";
 
 
 export default function TaskList(){
-    const tasks = [
+    const [tasks, setTasks] = useState([
         {
           id: 1,
           title: "Review week 9 material",
@@ -19,7 +19,7 @@ export default function TaskList(){
           title: "Work on assignment 2",
           date: "June 5th at 8 am",
         },
-      ];
+      ]);
 
       return(
       <ul>
