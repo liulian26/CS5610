@@ -5,7 +5,7 @@ export default function App() {
   const appName = "My Awesome App"
 
   return(
-    <div>
+    <div className="appContainer">
       <Header myAppName={appName} version={2} />  
     </div>
   );
