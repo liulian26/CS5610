@@ -1,7 +1,7 @@
 import React from "react";
 
 
-export default function Header() {
+export default function Header({ myAppName }) {
     console.log(myAppName);
     return (
         <div>
