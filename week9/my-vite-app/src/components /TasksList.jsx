@@ -1,4 +1,5 @@
 import React from "react";
+import Task from "./Task";
 
 
 export default function TaskList(){
@@ -25,7 +26,7 @@ export default function TaskList(){
             {/* using array.map to render the tasks array titles 
             for each element return an <li> */}
             {tasks.map((task) => {
-              return <li key={task.id}>{task.title}</li>;
+              return <Task key={task.id} taskObj={task} />;
             })}
           </ul>
       );
