@@ -2,7 +2,6 @@ import React from "react";
 
 
 export default function Header({ myAppName }) {
-    console.log(myAppName);
     return (
         <div>
             <header className="headerContainer">
