@@ -23,6 +23,27 @@ export default function App() {
     fetchData(); 
   }, []); 
 
+  const handleAddTask = async (newTask) => {
+    try {
+      const response = await fetch("http://localhost:5001/tasks", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(newTask),
+      });
+
+      if (response.ok) {
+        const savedTask = await response.json();
+        setTasks((prevTasks) => [...prevTasks, savedTask]);
+      } else {
+        console.error("Failed to add task");
+      }
+    } catch (error) {
+      console.error("Error adding task:", error);
+    }
+  };
+
   const handleDelete = async (taskId) => {
     try {
       const response = await fetch(`http://localhost:5001/tasks/${taskId}`, {
@@ -42,7 +63,7 @@ export default function App() {
   return (
     <div className="appContainer">
       <Header myAppName={appName} version={2} />
-      <AddTask />
+      <AddTask onAddTask={handleAddTask}/>
       {loading ? (
         <p>Loading...</p>
       ) : (

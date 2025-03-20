@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 
-export default function AddTask() {
+export default function AddTask({onAddTask}) {
     const [title, setTitle] = useState("");
     const [date, setDate] = useState("");
 
@@ -19,10 +19,11 @@ export default function AddTask() {
             title: title,
             date: date,
       };
-        console.log("New Task Submitted:", newTask);
-        setTitle("");
-        setDate("");
+      onAddTask(newTask);
+      setTitle("");
+      setDate("");
   };
+
 
   return (
     <form onSubmit={handleSubmit}>
