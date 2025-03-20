@@ -104,3 +104,12 @@ button:focus-visible {
   justify-content: space-between;
 }
 
+.deleteIcon {
+  color: red;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.deleteIcon:hover {
+  color: darkred;
+}

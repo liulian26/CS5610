@@ -20,14 +20,28 @@ export default function TaskList(){
           date: "June 5th at 8 am",
         },
       ]);
+      const handleDelete = (taskId) => {
+        setTasks((prevTasks) => prevTasks.filter((task) => task.id !== taskId));
+      };
 
       return(
-      <ul>
-            {/* using array.map to render the tasks array titles 
-            for each element return an <li> */}
-            {tasks.map((task) => {
-              return <Task key={task.id} taskObj={task} />;
-            })}
-          </ul>
+      // <ul>
+      //       {/* using array.map to render the tasks array titles 
+      //       for each element return an <li> */}
+      //       {tasks.map((task) => {
+      //         return <Task key={task.id} taskObj={task} />;
+      //       })}
+      //     </ul>
+      <div>
+      {tasks.length === 0 ? (
+        <p>No tasks left!</p>
+      ) : (
+        <ul>
+          {tasks.map((task) => (
+            <Task key={task.id} taskObj={task} onDelete={handleDelete} />
+          ))}
+        </ul>
+      )}
+    </div>
       );
 }
