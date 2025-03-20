@@ -16,10 +16,12 @@ export default function App() {
         setTasks(data);
       } catch (error) {
         console.error("Error fetching tasks:", error);
+        setLoading(false); 
       }
     }
     fetchData(); 
   }, []); 
+
   const handleDelete = async (taskId) => {
     try {
       const response = await fetch(`http://localhost:5001/tasks/${taskId}`, {
@@ -36,14 +38,14 @@ export default function App() {
     }
   };
 
-  return(
+  return (
     <div className="appContainer">
-      <Header myAppName={appName} version={2} />  
+      <Header myAppName={appName} version={2} />
       <AddTask />
       {loading ? (
         <p>Loading...</p>
       ) : (
-        <TasksList tasks={tasks} setTasks={setTasks} onDelete={handleDelete} />
+        <TasksList tasks={tasks} setTasks={setTasks} onDelete={handleDelete}  />
       )}
     </div>
   );
