@@ -91,3 +91,16 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+.taskContainer {
+  list-style: none;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.taskTileIconContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
