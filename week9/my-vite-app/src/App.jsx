@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Header from './components /Header';
 import TaskList from './components /TasksList';
 import AddTask from './components /AddTask';
@@ -24,7 +24,7 @@ export default function App() {
     <div className="appContainer">
       <Header myAppName={appName} version={2} />  
       <AddTask />
-      <TaskList tasks={task} setTasks={setTasks}/>
+      <TaskList tasks={tasks} setTasks={setTasks} />
     </div>
   );
 }

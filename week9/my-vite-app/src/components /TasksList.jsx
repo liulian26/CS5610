@@ -1,22 +1,20 @@
-import React,{useState} from "react";
+import React,{useEffect, useState} from "react";
 import Task from "./Task";
 
 
 export default function TaskList(){
-    const [tasks, setTasks] = useState([]);
-
-    useEffect(() => {
-      fetch("http://localhost:5001/tasks")
-        .then((response) => response.json())
-        .then((data) => setTasks(data)) 
-        .catch((error) => console.error("Error fetching tasks:", error));
+  const handleDelete = (taskId) => {
+    setTasks((prevTasks) => prevTasks.filter((task) => task.id !== taskId));
+  };
+  const [tasks, setTasks] = useState([]);
+  useEffect(() => {
+    fetch("http://localhost:5001/tasks")
+    .then((response) => response.json())
+    .then((data) => setTasks(data)) 
+    .catch((error) => console.error("Error fetching tasks:", error));
     }, []);
     
-      const handleDelete = (taskId) => {
-        setTasks((prevTasks) => prevTasks.filter((task) => task.id !== taskId));
-      };
-
-      return(
+    return(
       // <ul>
       //       {/* using array.map to render the tasks array titles 
       //       for each element return an <li> */}
