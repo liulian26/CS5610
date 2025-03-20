@@ -1,7 +1,7 @@
 import React from "react";
 import {IoTrashSharp} from "react-icons/io5";
 
-export default function Task({ taskObj }) {
+export default function Task({ taskObj, onDelete }) {
   return (
     <li>
       <div className="taskContainer">

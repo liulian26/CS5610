@@ -16,6 +16,7 @@ export default function App() {
         setTasks(data);
       } catch (error) {
         console.error("Error fetching tasks:", error);
+      } finally {
         setLoading(false); 
       }
     }
@@ -45,7 +46,7 @@ export default function App() {
       {loading ? (
         <p>Loading...</p>
       ) : (
-        <TasksList tasks={tasks} setTasks={setTasks} onDelete={handleDelete}  />
+        <TaskList tasks={tasks} setTasks={setTasks} onDelete={handleDelete}  />
       )}
     </div>
   );
