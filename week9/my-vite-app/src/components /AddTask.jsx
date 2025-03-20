@@ -12,8 +12,20 @@ export default function AddTask() {
         setDate(event.target.value);
       };
     
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        
+        const newTask = {
+            title: title,
+            date: date,
+      };
+        console.log("New Task Submitted:", newTask);
+        setTitle("");
+        setDate("");
+  };
+
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
       <div className="form-control">
         <label>Title</label>
         <input type="text"value={title} onChange={handleTitleChange} />
