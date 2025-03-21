@@ -7,6 +7,7 @@ export default function App() {
   const appName = "My Awesome App";
   const [tasks, setTasks] = useState([]); 
   const [loading, setLoading] = useState(true);
+  const [showForm, setShowForm] = useState(false); 
 
   useEffect(() => {
     async function fetchData() {
@@ -60,10 +61,14 @@ export default function App() {
     }
   };
 
+  const toggleForm = () => {
+    setShowForm((prev) => !prev);
+  };
+
   return (
     <div className="appContainer">
-      <Header myAppName={appName} version={2} />
-      <AddTask onAddTask={handleAddTask}/>
+      <Header myAppName={appName} version={2} toggleForm={toggleForm} showForm={showForm} />
+      {showForm &&<AddTask onAddTask={handleAddTask}/>}
       {loading ? (
         <p>Loading...</p>
       ) : (
