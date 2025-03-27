@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react';
 import Header from './components /Header';
 import TaskList from './components /TasksList';
 import AddTask from './components /AddTask';
-import { Routes, Route, Link } from "react-router";
+import TaskDetails from './components /TaskDetail';
+import { Routes, Route, Link, Outlet } from "react-router";
 
 export default function App() {
   const appName = "My Awesome App";
@@ -95,13 +96,16 @@ export default function App() {
               ) : (
                 <TaskList tasks={tasks} setTasks={setTasks} onDelete={handleDelete} />
               )}
+              <Outlet />
             </>
           }
-        />
+          >
+            <Route path=":taskId" element={<TaskDetails />} />
+          </Route>
         <Route
           path="*"
-          element={<p>404 - Page Not Found</p>}
-          />
+          element={<p> NotFound </p>}
+        />
       </Routes>
     </div>
   );
