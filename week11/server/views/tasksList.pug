@@ -1,0 +1,18 @@
+doctype html
+html(lang="en")
+head
+  title All Task 
+  link(rel="stylesheet", href="/styles.css")
+body
+  h1 All Tasks
+
+  ul
+    each task in tasks
+      li
+        a(href=`/tasks/${task._id}`) #{task.task}
+        if task.completed
+          |  (completed)
+        else
+          |  (not completed)
+
+  a(href="/tasks/newtask") Add a New Task
