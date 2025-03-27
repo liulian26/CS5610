@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Header from './components /Header';
 import TaskList from './components /TasksList';
 import AddTask from './components /AddTask';
-import {Routes, Route, Link } from "react-router-dom";
+import { Routes, Route, Link } from "react-router";
 
 export default function App() {
   const appName = "My Awesome App";
@@ -76,7 +76,7 @@ export default function App() {
       </nav>
 
       <Routes>
-      <Route
+        <Route
           path="/"
           element={
             <>
@@ -98,6 +98,10 @@ export default function App() {
             </>
           }
         />
+        <Route
+          path="*"
+          element={<p>404 - Page Not Found</p>}
+          />
       </Routes>
     </div>
   );
