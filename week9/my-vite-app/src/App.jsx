@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Header from './components /Header';
 import TaskList from './components /TasksList';
 import AddTask from './components /AddTask';
+import {Routes, Route, Link } from "react-router-dom";
 
 export default function App() {
   const appName = "My Awesome App";
@@ -68,12 +69,36 @@ export default function App() {
   return (
     <div className="appContainer">
       <Header myAppName={appName} version={2} toggleForm={toggleForm} showForm={showForm} />
-      {showForm &&<AddTask onAddTask={handleAddTask}/>}
-      {loading ? (
-        <p>Loading...</p>
-      ) : (
-        <TaskList tasks={tasks} setTasks={setTasks} onDelete={handleDelete}  />
-      )}
+
+
+      <nav>
+        <Link to="/">Home</Link> | <Link to="/tasks">Tasks</Link>
+      </nav>
+
+      <Routes>
+      <Route
+          path="/"
+          element={
+            <>
+              {showForm && <AddTask onAddTask={handleAddTask} />}
+              {loading ? <p>Loading...</p> : <p>Welcome to the Home Page!</p>}
+            </>
+          }
+        />
+        <Route
+          path="/tasks"
+          element={
+            <>
+              {showForm && <AddTask onAddTask={handleAddTask} />}
+              {loading ? (
+                <p>Loading...</p>
+              ) : (
+                <TaskList tasks={tasks} setTasks={setTasks} onDelete={handleDelete} />
+              )}
+            </>
+          }
+        />
+      </Routes>
     </div>
   );
 }
