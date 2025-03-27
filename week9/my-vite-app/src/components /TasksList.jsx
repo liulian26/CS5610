@@ -1,33 +1,37 @@
-import React,{useState} from "react";
+import React,{useEffect, useState} from "react";
 import Task from "./Task";
 
 
-export default function TaskList(){
-    const [tasks, setTasks] = useState([
-        {
-          id: 1,
-          title: "Review week 9 material",
-          date: "June 4th at 1 pm",
-        },
-        {
-          id: 2,
-          title: "Do quiz 9",
-          date: "June 4th at 6 pm",
-        },
-        {
-          id: 3,
-          title: "Work on assignment 2",
-          date: "June 5th at 8 am",
-        },
-      ]);
-
-      return(
-      <ul>
-            {/* using array.map to render the tasks array titles 
-            for each element return an <li> */}
-            {tasks.map((task) => {
-              return <Task key={task.id} taskObj={task} />;
-            })}
-          </ul>
+export default function TaskList({ tasks, setTasks, onDelete }){
+  // const handleDelete = (taskId) => {
+  //   setTasks((prevTasks) => prevTasks.filter((task) => task.id !== taskId));
+  // };
+  // const [tasks, setTasks] = useState([]);
+  // useEffect(() => {
+  //   fetch("http://localhost:5001/tasks")
+  //   .then((response) => response.json())
+  //   .then((data) => setTasks(data)) 
+  //   .catch((error) => console.error("Error fetching tasks:", error));
+  //   }, []);
+    
+    return(
+      // <ul>
+      //       {/* using array.map to render the tasks array titles 
+      //       for each element return an <li> */}
+      //       {tasks.map((task) => {
+      //         return <Task key={task.id} taskObj={task} />;
+      //       })}
+      //     </ul>
+      <div>
+      {tasks.length === 0 ? (
+        <p>No tasks left!</p>
+      ) : (
+        <ul>
+          {tasks.map((task) => (
+            <Task key={task.id} taskObj={task} onDelete={onDelete} />
+          ))}
+        </ul>
+      )}
+    </div>
       );
 }

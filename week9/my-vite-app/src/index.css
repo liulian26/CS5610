@@ -91,3 +91,34 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+.taskContainer {
+  list-style: none;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.taskTileIconContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.deleteIcon {
+  color: red;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.deleteIcon:hover {
+  color: darkred;
+}
+
+.form-control {
+  margin: 20px 0;
+  display: flex;
+}
+
+.form-control label {
+  margin-right: 10px;
+}
