@@ -1,5 +1,6 @@
 import React,{useEffect, useState} from "react";
 import Task from "./Task";
+import { Outlet } from "react-router";
 
 
 export default function TaskList({ tasks, setTasks, onDelete }){
@@ -32,6 +33,7 @@ export default function TaskList({ tasks, setTasks, onDelete }){
           ))}
         </ul>
       )}
+      <Outlet />
     </div>
       );
 }

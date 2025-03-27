@@ -7,9 +7,9 @@ import { Routes, Route, Link, Outlet } from "react-router";
 
 export default function App() {
   const appName = "My Awesome App";
-  const [tasks, setTasks] = useState([]);
+  const [tasks, setTasks] = useState([]); 
   const [loading, setLoading] = useState(true);
-  const [showForm, setShowForm] = useState(false);
+  const [showForm, setShowForm] = useState(false); 
 
   useEffect(() => {
     async function fetchData() {
@@ -20,17 +20,19 @@ export default function App() {
       } catch (error) {
         console.error("Error fetching tasks:", error);
       } finally {
-        setLoading(false);
+        setLoading(false); 
       }
     }
-    fetchData();
-  }, []);
+    fetchData(); 
+  }, []); 
 
   const handleAddTask = async (newTask) => {
     try {
       const response = await fetch("http://localhost:5001/tasks", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+        },
         body: JSON.stringify(newTask),
       });
 
@@ -68,10 +70,15 @@ export default function App() {
   return (
     <div className="appContainer">
       <nav>
-        <Header myAppName={appName} version={2} toggleForm={toggleForm} showForm={showForm} />
+        <Header
+          myAppName={appName}
+          version={2}
+          toggleForm={toggleForm}
+          showForm={showForm}
+        />
         <Link to="/">Home</Link> | <Link to="/tasks">Tasks</Link>
       </nav>
-
+  
       <Routes>
         <Route
           path="/"
@@ -82,26 +89,20 @@ export default function App() {
             </>
           }
         />
-
+  
         <Route
           path="/tasks"
           element={
-            <>
-              {showForm && <AddTask onAddTask={handleAddTask} />}
-              {loading ? (
-                <p>Loading...</p>
-              ) : (
-                <>
-                  <TaskList tasks={tasks} setTasks={setTasks} onDelete={handleDelete} />
-                  <Outlet />
-                </>
-              )}
-            </>
+            <TaskList
+              tasks={tasks}
+              setTasks={setTasks}
+              onDelete={handleDelete}
+            />
           }
         >
-          <Route path=":taskId" element={<TaskDetails />} />
+          <Route path=":taskId" element={<TaskDetails tasks={tasks} />} />
         </Route>
-
+  
         <Route path="*" element={<h1>Not Found</h1>} />
       </Routes>
     </div>
