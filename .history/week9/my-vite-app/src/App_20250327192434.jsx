@@ -10,8 +10,6 @@ export default function App() {
   const [showForm, setShowForm] = useState(false);
   const [tasks, setTasks] = useState([]); 
 
-  const appName = "My Awesome App";
-
   const toggleShowForm = () => {
     setShowForm(prev => !prev);
   };
@@ -67,6 +65,7 @@ export default function App() {
             </>
           }
         />
+
         <Route
           path="/tasks"
           element={
