@@ -14,8 +14,19 @@ export default function TaskList({ tasks, setTasks, onDelete }){
   //   .then((data) => setTasks(data)) 
   //   .catch((error) => console.error("Error fetching tasks:", error));
   //   }, []);
-    
-    return(
+  async function deleteTask(deletedId) {
+    console.log("delete pressed from taskslist ", deletedId);
+    try {
+      //delete from server
+      await fetch("http://localhost:5001/tasks/" + deletedId, {
+        method: "DELETE",
+      });
+    } catch (err) {
+      console.log("deleteTask ", err);
+    }
+  }
+  
+  return(
       // <ul>
       //       {/* using array.map to render the tasks array titles 
       //       for each element return an <li> */}
@@ -23,17 +34,17 @@ export default function TaskList({ tasks, setTasks, onDelete }){
       //         return <Task key={task.id} taskObj={task} />;
       //       })}
       //     </ul>
-      <div>
+    <div>
       {tasks.length === 0 ? (
         <p>No tasks left!</p>
       ) : (
         <ul>
-          {tasks.map((task) => (
-            <Task key={task.id} taskObj={task} onDelete={onDelete} />
-          ))}
+          {tasks.map((task) => {
+            return <Task key={task.id} taskObj={task} onDelete={deleteTask} />;
+          })}
         </ul>
       )}
       <Outlet />
     </div>
-      );
+    );
 }

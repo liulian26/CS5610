@@ -10,7 +10,6 @@ export default function Task({ taskObj, onDelete }) {
           <NavLink to={`/tasks/${taskObj.id}`}>
             {taskObj.title}
           </NavLink>
-          
           <IoTrashSharp className="deleteIcon" onClick={() => onDelete(taskObj.id)}/>
         </div>
           <p>{taskObj.date}</p>

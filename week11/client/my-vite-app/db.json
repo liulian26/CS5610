@@ -1,36 +1,19 @@
 {
   "tasks": [
     {
-      "id": "2",
-      "title": "Do quiz 9",
-      "date": "June 4th at 6 pm"
-    },
-    {
       "id": "3",
       "title": "Work on assignment 2",
       "date": "June 5th at 8 am"
     },
     {
-      "id": "2f1d",
-      "title": "test",
-      "date": "0320"
-    }
-  ],
-  "users": [
-    {
-      "id": 1,
-      "name": "Neda",
-      "task": 1
+      "id": "4926",
+      "title": "test ",
+      "date": "Today"
     },
     {
-      "id": 2,
-      "name": "Dan",
-      "task": 3
-    },
-    {
-      "id": 3,
-      "name": "Adam",
-      "task": 3
+      "id": "1d9f",
+      "title": "Exercise",
+      "date": "March 26th"
     }
   ]
 }
