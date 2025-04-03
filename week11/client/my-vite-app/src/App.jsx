@@ -1,22 +1,22 @@
-import React, { useState, useEffect } from "react";
-import Header from './components/Header';
-import TaskList from './components/TasksList';
-import AddTask from './components/AddTask';
-import TaskDetails from './components/TaskDetail';
-import { Routes, Route, NavLink, Outlet } from "react-router";
+import React, { useState } from "react";
+import Header from "./components/Header";
+import TasksList from "./components/TasksList";
+import AddTask from "./components/AddTask";
+import { Link, NavLink, Route, Routes } from "react-router";
+import TaskDetails from "./components/TaskDetails";
 import LoginButton from "./components/LoginButton";
 import LogoutButton from "./components/LogoutButton";
+import { useAuth0 } from "@auth0/auth0-react";
+
 
 export default function App() {
-  const [loading, setLoading] = useState(true);
+  const { isAuthenticated, isLoading } = useAuth0();
   const [showForm, setShowForm] = useState(false);
-  const [tasks, setTasks] = useState([]);
-
-  const appName = "My Awesome App";
 
   const toggleShowForm = () => {
-    setShowForm(prev => !prev);
+    setShowForm(!showForm);
   };
+  const appName = "My Awesome App";
 
   useEffect(() => {
     const controller = new AbortController();
@@ -47,17 +47,28 @@ export default function App() {
     };
   }, []);
 
-  return (
+  return isLoading ? (
+    <img src="https://cdn.auth0.com/blog/auth0-react-sample/assets/loading.svg" />
+  ) : (
     <div className="appContainer">
-      <nav>
-        <NavLink to="/">Home</NavLink>
-        <NavLink to="/tasks">Tasks</NavLink>
-      </nav>
-      <div>
-          <LoginButton />
-          <LogoutButton />
-        </div>
+      <div className="navBar">
+        <nav>
+        <NavLink
+            // className={({ isActive }) => {
+            //   if (isActive) {
+            //     return "activeLink";
+            //   }
+            // }}
+            to="/"
+          >
+            Home
+          </NavLink>
+          <NavLink to="/tasks">Tasks</NavLink>
+        </nav>
+      
 
+        <div>{isAuthenticated ? <LogoutButton /> : <LoginButton />}</div>
+      </div>
       <Routes>
         <Route
           path="/"
@@ -66,34 +77,17 @@ export default function App() {
               <Header
                 myAppName={appName}
                 showForm={showForm}
-                toggleForm={toggleShowForm}
+                onAddTask={toggleShowForm}
               />
               {showForm && <AddTask />}
-              {loading ? <p>Loading...</p> : <p>Welcome to the Home Page!</p>}
             </>
           }
         />
-        <Route
-          path="/tasks"
-          element={
-            <>
-              <Header
-                myAppName={appName}
-                showForm={showForm}
-                toggleForm={toggleShowForm}
-              />
-              {showForm && <AddTask />}
-              <TaskList tasks={tasks} />
-              <Outlet />
-            </>
-          }
-        >
+        <Route path="tasks" element={<TasksList />}>
           <Route path=":taskId" element={<TaskDetails />} />
         </Route>
-
-        <Route path="*" element={<h1>Not Found</h1>} />
+        <Route path="*" element={<h1>That page doesn't exist</h1>} />
       </Routes>
     </div>
   );
 }
-
