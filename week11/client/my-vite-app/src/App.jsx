@@ -5,6 +5,7 @@ import AddTask from './components/AddTask';
 import TaskDetails from './components/TaskDetail';
 import { Routes, Route, NavLink, Outlet } from "react-router";
 import LoginButton from "./components/LoginButton";
+import LogoutButton from "./components/LogoutButton";
 
 export default function App() {
   const [loading, setLoading] = useState(true);
@@ -52,7 +53,10 @@ export default function App() {
         <NavLink to="/">Home</NavLink>
         <NavLink to="/tasks">Tasks</NavLink>
       </nav>
-      <LoginButton />
+      <div>
+          <LoginButton />
+          <LogoutButton />
+        </div>
 
       <Routes>
         <Route
