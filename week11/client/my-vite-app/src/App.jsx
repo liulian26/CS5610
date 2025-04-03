@@ -7,6 +7,7 @@ import TaskDetails from "./components/TaskDetails";
 import LoginButton from "./components/LoginButton";
 import LogoutButton from "./components/LogoutButton";
 import { useAuth0 } from "@auth0/auth0-react";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 
 export default function App() {
@@ -86,6 +87,10 @@ export default function App() {
         <Route path="tasks" element={<TasksList />}>
           <Route path=":taskId" element={<TaskDetails />} />
         </Route>
+        <Route
+          path="profile"
+          element={<ProtectedRoute component={Profile} />}
+        />
         <Route path="*" element={<h1>That page doesn't exist</h1>} />
       </Routes>
     </div>
