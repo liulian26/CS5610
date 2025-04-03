@@ -1,14 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from "react";
 import Header from './components/Header';
 import TaskList from './components/TasksList';
 import AddTask from './components/AddTask';
 import TaskDetails from './components/TaskDetail';
-import { Routes, Route, Link, Outlet, NavLink } from "react-router";
+import { Routes, Route, NavLink, Outlet } from "react-router";
+import LoginButton from "./components/LoginButton";
 
 export default function App() {
   const [loading, setLoading] = useState(true);
   const [showForm, setShowForm] = useState(false);
-  const [tasks, setTasks] = useState([]); 
+  const [tasks, setTasks] = useState([]);
 
   const appName = "My Awesome App";
 
@@ -47,10 +48,11 @@ export default function App() {
 
   return (
     <div className="appContainer">
-      <nav style={{ marginBottom: "1rem" }}>
-        <NavLink to="/" style={{ marginRight: "1rem" }}>Home</NavLink>
+      <nav>
+        <NavLink to="/">Home</NavLink>
         <NavLink to="/tasks">Tasks</NavLink>
       </nav>
+      <LoginButton />
 
       <Routes>
         <Route
@@ -90,3 +92,4 @@ export default function App() {
     </div>
   );
 }
+
