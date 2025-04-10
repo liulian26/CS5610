@@ -90,6 +90,12 @@ const express = require('express');
 const app = express();
 
 
+const { auth } = require('express-oauth2-jwt-bearer');
+const checkJWT = auth({
+  audience: process.env.AUTH0_AUDIENCE,
+  issuerBaseURL: `https://${process.env.AUTH0_DOMAIN}/`,
+});
+
 app.set('view engine', 'pug');
 app.set('views', './views');
 app.set('views', __dirname + '/views')

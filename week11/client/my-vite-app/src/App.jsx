@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Header from "./components/Header";
 import TasksList from "./components/TasksList";
 import AddTask from "./components/AddTask";
 import { Link, NavLink, Route, Routes } from "react-router";
-import TaskDetails from "./components/TaskDetails";
+import TaskDetails from "./components/TaskDetail";
 import LoginButton from "./components/LoginButton";
 import LogoutButton from "./components/LogoutButton";
 import { useAuth0 } from "@auth0/auth0-react";
