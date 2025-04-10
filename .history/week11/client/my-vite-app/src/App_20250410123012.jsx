@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Header from "./components/Header";
 import TasksList from "./components/TasksList";
 import AddTask from "./components/AddTask";
-import { NavLink, Route, Routes } from "react-router";
+import { NavLink, Route, Routes } from "react-router-dom";
 import TaskDetails from "./components/TaskDetail";
 import LoginButton from "./components/LoginButton";
 import LogoutButton from "./components/LogoutButton";
@@ -10,7 +10,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import Profile from "./components/Profile";
 import ProtectedRoute from "./components/ProtectedRoute";
 import { FaBars, FaTimes } from "react-icons/fa";
-import "./index.css";
+import "./App.css"; // ⬅️ 添加样式文件
 
 export default function App() {
   const { isAuthenticated, isLoading } = useAuth0();

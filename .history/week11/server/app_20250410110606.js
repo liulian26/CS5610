@@ -84,17 +84,11 @@
 // // Run both functions
 // writeAndReadFile();
 const db = require('./db');
-require('dotenv').config();
+// require('dotenv').config();
 // console.log(process.env);
 const express = require('express');
 const app = express();
 
-
-const { auth } = require('express-oauth2-jwt-bearer');
-const checkJWT = auth({
-  audience: process.env.AUTH0_AUDIENCE,
-  issuerBaseURL: `https://${process.env.AUTH0_DOMAIN}/`,
-});
 
 app.set('view engine', 'pug');
 app.set('views', './views');
@@ -117,7 +111,7 @@ app.get("/", (req, res) => {
 });
 
 
-const port = 3000;
+const port = 5000;
 app.listen(port, async function () {
   console.log(`Example app listening on port ${port}!`);
   // connect to db
