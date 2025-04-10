@@ -3,9 +3,6 @@ import {IoTrashSharp} from "react-icons/io5";
 import { NavLink } from "react-router";
 
 export default function Task({ taskObj, onDelete }) {
-  function deletePressed() {
-    onDelete(taskObj.id);
-  }
   return (
     <li>
       <div className="taskContainer">
@@ -13,7 +10,7 @@ export default function Task({ taskObj, onDelete }) {
           <NavLink to={`/tasks/${taskObj.id}`}>
             {taskObj.title}
           </NavLink>
-          <IoTrashSharp onClick={deletePressed}/>
+          <IoTrashSharp className="deleteIcon" onClick={() => onDelete(taskObj.id)}/>
         </div>
           <p>{taskObj.date}</p>
       </div>
